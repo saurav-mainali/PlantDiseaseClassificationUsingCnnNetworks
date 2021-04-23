@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Results</title>
+
+
+</head>
+<body>
+    
+    <div id="main">
+        
+        <div id="header">
+            <div id="logo">
+                <span id="logo_text">Plant Disease Classification using CNN Networks</span>
+            </div><!--logo-->
+
+            <div id="menubar">
+                <ul id="menu">
+                        <li><a href ="index.html">Home</a></li>
+                        <li><a href ="dataset.html" >Dataset</a></li>
+                        <li><a href="models.html">Models</a></li>  
+                        <li class="selected"><a href = "result.html">Results</a></li>                  
+                </ul><!--menu-->
+            </div><!--menubar-->
+        </div><!--header-->
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div style="clear:both" id="site_content">
+                <h1>Model Comparision</h1>
+                <p class='texts'>To measure the performance of models Accuracy, Cohen Kappa Score and Macro F1 Score are used. Accuracy Score is considered as the prime performance indicator as the dataset used is balanced. Accuracy gives us idea on how many predictions were correct among all the predictions made. Similarly, Macro F1 Score hints on performance of model by giving equal importance to each class label. Predictions made on Testing set produced the following results: </p>
+                <div style="width:900px; height: 350px" ><img src="img/compare_result.png" style="width: 550px; height: 330px; display: block; margin: auto;" ></div> 
+                <p class='texts'>All models predicted the plant disease with high accuracy as seen in the table above. Pre-trained models produced accuracy higher than 95%. VGG16, ResNet152V2 and InceptionV3 yielded best result each with accuracy of 97.34%. Even the worst performing custom CNN network generated accuracy of 93%. Cohen Kappa and Macro F1 scores are also high for all models.</p>
+                
+                <p class='texts'>Confusion Matrix of Custom CNN Network, our worst performing model, looked as such: </p>               
+                <div style="width:900px; height: 450px" ><img src="img/conf_cust.png" style="width: 580px; height: 430px; display: block; margin: auto;" ></div>               
+                <p class='texts'>The matrix shows there were large number of misclassifications among apple plants due to which the performance of the model significantly decreased. This problem was resolved by other pre-trained models. </p>               
+                
+                <p class='texts'>Confusion Matrix of VGG16, one of the best performing models, shows most of the predictions were made accurately. </p>               
+                <div style="width:900px; height: 450px" ><img src="img/conf_vgg16.png" style="width: 580px; height: 430px; display: block; margin: auto;" ></div>               
+                
+                <p class='texts'>The Matrix shows only 3 apple plants were incorrectly classified. Few early potato blight leaves were misclassified as healthy. Some healthy potato leaves were even misclassified as late blight. Furthermore, a few Grape Black Rot leaves were incorrectly classified as measles. Overall, the model exhibits good performance.</p>               
+                <br/>
+
+                <h1>Recommendation</h1>
+                <p class='texts'>In this study the focus was given mainly to classify plants disease based upon the leaves of the plant. Some class labels comprised early-stage diseases whereas other were late-stage diseases. The study could be taken further by implementing deep learning models that can classify plants diseases in an initial stage. Early identification of disease would help farmers take proper actions in invading the spread of contagious disease. The disease control would further reduce the problem of crop loss. </p>
+                <br/>  
+
+                <h1>Conclusion</h1>
+                <p class='texts'>To meet agricultural demands of the increasing population forests are being mercilessly destroyed which is only adding burden to the existing environmental problems. A solution to this is finding ways to reduce crop wastage. Annually up to 40% of food crops gets wasted, majority of which are resulted by contagious plant diseases. By implementing robust deep learning models as discussed in this study, powerful applications can be created that can be operated even by uneducated farmers across the world. Once plant disease has been classified with high probability, the application could assist farmers with precautionary steps that can be taken to control plant disease. This could not only reduce wastage of crops resulting from plant disease but also control deforestation resulting from increased crop demand. </p>           
+        </div><!--site_content-->
+
+        <div style="clear:both" id="footer">
+            Copyright &copy; 
+            <script>
+                var d = new Date();
+                document.write(d.getFullYear());
+            </script>
+            | <span>Mainali Saurav</span>
+
+        </div><!--footer-->
+
+    </div>
+
+</body>
+</html>

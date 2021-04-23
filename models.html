@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <title>Deep Learning Models</title>
+
+
+</head>
+<body>
+    
+    <div id="main">
+        
+        <div id="header">
+            <div id="logo">
+                <span id="logo_text">Plant Disease Classification using CNN Networks</span>
+            </div><!--logo-->
+
+            <div id="menubar">
+                <ul id="menu">
+                        <li ><a href ="index.html">Home</a></li>
+                        <li><a href ="dataset.html" >Dataset</a></li>
+                        <li class="selected"><a href="models.html">Models</a></li>      
+                        <li><a href = "result.html">Results</a></li>                  
+                </ul><!--menu-->
+            </div><!--menubar-->
+        </div><!--header-->
+
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <div style="clear:both" id="site_content">
+                <h1>Deep Learning Networks Used</h1>
+                <br/>
+                <h2>1. Custom Convolution Neural Network (CNN) </h2>
+                <p class='texts'>Firstly, we created a custom CNN Network using Keras Framework. Code representing structure of the model can be seen below: </p>
+                <br/>
+                <div style="width:900px; height: 320px" ><img src="img/custom_cnn.png" style="width: 550px; height: 300px; display: block; margin: auto;" ></div> 
+                <p class='texts'>For the custom network 3 Conv2d layers with 8, 16 and 32 filters were connected end by end. All the filters had kernel size of 3, 3 and stride of 1. Relu activation unit was used on all layers. After the first layer Batch Normalization was performed followed by Max Pooling with kernel of 2,2. For the remaining two layers Batch Normalization was followed with Average Pooling of the same kernel size. The output was then flattened and passed into Dense layer with 150 filters and Tanh activation units. Finally, with the dropout rate of 0.5, they were all Normalized again and passed into SoftMax Unit having filters equal to number of class labels. Learning Rate was set to 0.0001 and with the batch size of 32 the model was trained for 14 epochs with Callback monitoring accuracy of validation set.</p>
+                    
+                <br/>
+                <h2>2. Pre-Trained CNN Networks</h2>
+                <p class='texts'>We also implemented 5 different pre-trained networks from Keras framework namely - <br/><br/> i. VGG16 <br/> ii. VGG19<br/> iii. ResNet152V2 <br/> iv. InceptionV3 <br/> v. InceptionResV2   </p>
+                <p class='texts'>A code snippet of implementation of VGG19 model can be seen below:    </p>
+                <div style="width:900px; height: 250px" ><img src="img/vgg19.png" style="width: 550px; height: 250px; display: block; margin: auto;" ></div> 
+                <p class='texts'>The weights of pre-trained networks were fixed. The output from pretrained networks were flattened and passed to Dense layer with 150 filters and Tanh activation unit. Then with dropout rate of 0.5 the outputs were normalized and passed into a final Dense layer with 12 filters and SoftMax as activation unit.Finally, learning rate was set to 0.0001 and with the batch size of 256 pretrained models were trained for 20 epochs with Callback monitoring accuracy of validation set.   </p>
+                <br/>
+                <br/>
+
+                
+
+
+                <h1>Hyperparameter Tuning</h1> 
+                <p class='texts'>Training parameters were decided by using the trial-and-error approach. Various number of layers, size of filters and kernels, learning rate, minibatch size, dropout rate, number of epochs were experimented by monitoring models performance. Also, to prevent overfitting concept of Early Callback was implemented. Value of parameters mentioned above minimized the gap between training and validation accuracy.</p><br/>
+                <p class='texts' style="padding-left: 0%;">Machine Learning codes can be downloaded from <a href='https://github.com/saurav-mainali/PlantDiseaseClassificationCode'>this link.</a><br><br/> Result of above discussed models can be seen <a href="result.html">here</a>.</p>
+                
+        </div><!--site_content-->
+
+        <div style="clear:both" id="footer">
+            Copyright &copy; 
+            <script>
+                var d = new Date();
+                document.write(d.getFullYear());
+            </script>
+            | <span>Mainali Saurav</span>
+
+        </div><!--footer-->
+
+    </div>
+
+</body>
+</html>
